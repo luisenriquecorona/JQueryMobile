@@ -237,7 +237,7 @@ iframe {
     title="Everywhere"
     width="300"
     height="200"
-    src="http://bit.ly/2xttY9t">
+    src="https://jsconsole.com/?import%20{everywhere}%20from%20%22./crow-tech%22;%0A%0Aeverywhere(nest%20%3D%3E%20{%0A%20%20nest.state.gossip%20%3D%20[];%0A});%0A%0Afunction%20sendGossip(nest,%20message,%20exceptFor%20%3D%20null)%20{%0A%20%20nest.state.gossip.push(message);%0A%20%20for%20(let%20neighbor%20of%20nest.neighbors)%20{%0A%20%20%20%20if%20(neighbor%20%3D%3D%20exceptFor)%20continue;%0A%20%20%20%20request(nest,%20neighbor,%20%22gossip%22,%20message);%0A%20%20}%0A}%0A%0ArequestType(%22gossip%22,%20(nest,%20message,%20source)%20%3D%3E%20{%0A%20%20if%20(nest.state.gossip.includes(message))%20return;%0A%20%20console.log(`${nest.name}%20received%20gossip%20%27${%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20message}%27%20from%20${source}`);%0A%20%20sendGossip(nest,%20message,%20source);%0A});">
 </iframe>
 </pre>
             </div>
