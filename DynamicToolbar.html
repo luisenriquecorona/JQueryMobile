@@ -1,0 +1,154 @@
+<?php if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') { ?>
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Open Source - Demos</title>
+	<link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="jqm-demos.css">
+	<script src="jquery.js"></script>
+	<script src="index.js"></script>
+	<script src="jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+		//Navbar
+		$(function(){
+			$("[data-role='navbar']").navbar();
+			$("[data-role='header'], [data-role='footer']").toolbar();
+		});
+	</script>
+
+	<script>
+		//Time
+		function updateTime() {
+		document.getElementById("output").innerHTML = new
+		Date();
+		}
+		setInterval(updateTime, 1000);
+	</script>
+</head>
+
+<body>
+
+    <div data-role="header" data-position="fixed" data-theme="b">
+		<a href="../toolbar/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+        <h1>DOM, ECMAScript, Browser, Date</h1>
+    </div><!-- /header -->
+<?php } ?>
+
+	<div data-role="page" class="jqm-demos" id="page-with-dynamic-toolbars">
+
+		<div role="main" class="ui-content jqm-content jqm-fullwidth">
+
+			<h1>Open Source</h1>
+
+			<br />
+			<div data-demo-html="#page-with-dynamic-toolbars" data-demo-js="true">
+			<h1>Coding Snippet</h1>	
+			</div>
+
+		</div><!-- /content -->
+
+		<hr>
+
+<h2>Navigator Object</h2>
+<big> 
+<script type="text/javascript">
+			//Navigator
+				for(var property in navigator){ 
+				str="navigator"+"."+ property;
+				document.write(property+ "&nbsp;&nbsp;<em>"+ 
+				str+"</em><br />");
+			} 
+</script>
+</big> 
+<br />
+
+<h2>About The Browser</h2>
+<br />
+<big> 
+<script type="text/javascript">
+				//Browser
+					var BrowserName= navigator.appName;
+					var BrowserVersion = navigator.appVersion; 
+					var BrowserAgent= navigator.userAgent; 
+					var platform=navigator.platform; 
+						document.write("<b>The Browser's name is:</b> " +
+						BrowserName + "<br />"); 
+						document.write("<b>The Browser version is:</b> " +
+						BrowserVersion + "<br />"); 
+						document.write("<b>The Browser's \"user agent\" is:</b> " +
+						BrowserAgent + "<br />"); 
+						document.write("<b>The Browser's platform is:</b> " +
+						platform + "<br />"); 
+</script> 
+</big>
+<br />
+
+<h2>Looping Object</h2>
+<br />
+<script type="text/javascript">
+						//Looping 
+							var props=new Array(); 
+							for ( var property in window.document){ 
+							props.push(property); 
+							}
+								for(i=0;i<props.length; i++){ 
+								document.write( props[i] + " "); 
+								if( i>0 && i%4 == 0 ){
+								document.write("<br />"); 
+								}
+							} 
+</script>
+
+<br />
+<script>
+							//NowDate
+							var greeting;
+							var nowDate = new Date();
+							var nowHour = nowDate.getHours();
+							var nowMinute = nowDate.getMinutes();
+							var nowSecond = nowDate.getSeconds();
+								if (nowMinute < 10) {
+								nowMinute = "0" + nowMinute;
+								}
+								if (nowSecond < 10) {
+								nowSecond = "0" + nowSecond;
+								}
+								if (nowHour < 12) {
+									greeting = "Good Morning";
+									} else if (nowHour < 17) {
+									greeting = "Good Afternoon";
+									} else {
+									greeting = "Good Evening";
+									}
+										document.write("<h4>" + greeting + " and welcome to my website</h4>");
+										document.write("According to your clock the time is ");
+										document.write(nowHour + ":" + nowMinute + ":" + nowSecond);
+
+</script>
+
+		<div id="output"></div>
+
+
+	</div><!-- /page -->
+
+
+<?php if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') { ?>
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="index.html" data-prefetch="true" data-transition="none">TextKi</a></li>
+				<li><a href="DynamicToolbar.html" data-prefetch="true" data-transition="flip">Open Source</a></li>
+				<li><a href="Popup/popup.html" data-prefetch="true" data-transition="slide">Gallery</a></li>
+				<li><a href="newyork.html" data-prefetch="true" data-transition="turn">Trivia</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</body>
+</html>
+<?php } ?>
